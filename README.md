@@ -1,7 +1,9 @@
 ---
 # <%site-name%>
 
----### TABLE OF CONTENTS
+---
+
+### TABLE OF CONTENTS
 
 | Topic                       | Created By  |
 | --------------------------- | ----------- |
