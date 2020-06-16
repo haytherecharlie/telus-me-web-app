@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./",
+    "paths": {
+      "api/*": ["./src/api/*"],
+      "config/*": ["./src/config/*"],
+      "services/*": ["./src/services/*"],
+      "ui/*": ["./src/ui/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true, // doesn't care about typings files for libraries
+    "esModuleInterop": true, // allows import charlie from 'charlie' instead of * as charlie
+    "allowSyntheticDefaultImports": true, // same as esModuleInterop
+    "strict": false, // The best.
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "include": ["src"]
+}
