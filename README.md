@@ -1,5 +1,5 @@
 ---
-# Gatsby Starter Kit
+# <%site-name%>
 
 ---### TABLE OF CONTENTS
 
