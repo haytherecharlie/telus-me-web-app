@@ -2,10 +2,10 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    siteUrl: '<%site-url%>',
-    title: `<%site-name%>`,
-    description: `<%site-description%>`,
-    author: `<%site-author%>`,
+    siteUrl: 'https://telus-me.web.app',
+    title: `Telus ME`,
+    description: `Telus Daily Check-in`,
+    author: `Charlie Hay`,
   },
   plugins: [
     `gatsby-plugin-root-import`,
@@ -94,8 +94,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: '<%site-url%>',
-        sitemap: '<%site-url%>/sitemap.xml',
+        host: 'https://telus-me.web.app',
+        sitemap: 'https://telus-me.web.app/sitemap.xml',
         policy: [
           {
             userAgent: '*',

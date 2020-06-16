@@ -1,5 +1,5 @@
 ---
-# <%site-name%>
+# Telus ME
 
 ---
 
@@ -14,10 +14,10 @@
 ## Getting Started:
 
 ### Replace Slugs
-* <%site-author%>
-* <%site-description%>
-* <%site-keywords%>
-* <%site-name%>
-* <%site-url%>
+* Charlie Hay
+* Telus Daily Check-in
+* Telus ME
+* Telus ME
+* https://telus-me.web.app
 * <%adsense-id%>
 * <%analytics-id%>
