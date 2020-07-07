@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle({
   caption: { paddingTop: '.75rem', paddingBottom: '.75rem', color: '#868e96', captionSide: 'bottom' },
   button: { WebkitAppearance: 'button' },
   hr: { boxSizing: 'content-box', height: '0' },
-  input: { margin: '0', fontFamily: 'inherit', fontSize: 'inherit', lineHeight: 'inherit' },
+  input: { margin: '0', fontFamily: 'inherit', fontSize: 'inherit', lineHeight: 'inherit', '&:focus': { outline: 'none' } },
   textarea: { resize: 'vertical' },
   div: { display: 'flex', boxSizing: 'border-box', '-webkit-overflow-scrolling': 'touch' },
   article: { display: 'block' },
