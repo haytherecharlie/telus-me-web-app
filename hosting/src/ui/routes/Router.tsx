@@ -5,6 +5,7 @@ import useFirebaseAuth from 'ui/hooks/useFirebaseAuth'
 import Feedback from 'ui/pages/Feedback'
 import Loading from 'ui/pages/Loading'
 import Login from 'ui/pages/Login'
+import Results from 'ui/pages/Results'
 
 const Routes = () => {
   useFirebaseAuth()
@@ -19,6 +20,7 @@ const Routes = () => {
       return (
         <Router basepath="/">
           <Feedback path="/" />
+          <Results path="/results" />
         </Router>
       )
   }

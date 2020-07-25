@@ -1,21 +1,24 @@
-import React, { useEffect } from 'react'
-import Cookie from 'js-cookie'
+import React, { useState } from 'react'
 import { auth } from 'services/firebase'
 import ButtonPill from 'ui/atoms/ButtonPill'
 import Link from 'ui/atoms/Link'
 import Text from 'ui/atoms/Text'
-import useTelusMe from 'ui/hooks/useTelusMe'
 import PageLayout from 'ui/layouts/PageLayout'
 
 const Login = () => {
-  const [state, update] = useTelusMe()
+  const [email, setEmail] = useState('')
+  const [valid, setValid] = useState(false)
+
+  const handleChange = e => {
+    setEmail(e.target.value)
+    setValid(/^(?=[a-zA-Z,]*['.-][a-zA-Z,]*$)[a-zA-Z,'.-]+$/.test(e.target.value))
+  }
 
   const submitEmail = async () => {
     try {
-      const options = await auth().fetchSignInMethodsForEmail(`${state.email}@telus.com`)
-      console.log(options)
-      if (!options.length) await auth().createUserWithEmailAndPassword(`${state.email}@telus.com`, `Vr%Jks@c17LTh&z4`)
-      await auth().signInWithEmailAndPassword(`${state.email}@telus.com`, `Vr%Jks@c17LTh&z4`)
+      const options = await auth().fetchSignInMethodsForEmail(`${email}@telus.com`)
+      if (!options.length) await auth().createUserWithEmailAndPassword(`${email}@telus.com`, `Vr%Jks@c17LTh&z4`)
+      await auth().signInWithEmailAndPassword(`${email}@telus.com`, `Vr%Jks@c17LTh&z4`)
     } catch (err) {
       console.error(err.message)
       throw err
@@ -43,8 +46,8 @@ const Login = () => {
         }}>
         <input
           type="text"
-          value={state.email}
-          onChange={e => update({ type: 'email', email: e.target.value })}
+          value={email}
+          onChange={handleChange}
           autoFocus
           placeholder="your.name"
           style={{
@@ -68,7 +71,7 @@ const Login = () => {
         </div>
       </div>
       <div style={{ height: 50 }}>
-        {state.email && (
+        {valid && (
           <Link
             type="button"
             onClick={submitEmail}

@@ -3,11 +3,11 @@ import * as A from 'services/redux/actions'
 const defaultState = {
   auth: 'pending',
   email: null,
-  firstName: null,
-  lastName: null
+  firstname: null,
+  lastname: null
 }
 
-const uiReducer = (state = defaultState, action) => {
+const userReducer = (state = defaultState, action) => {
   switch (action.type) {
     case A.USER:
       return { ...state, ...action.user }
@@ -16,4 +16,4 @@ const uiReducer = (state = defaultState, action) => {
   }
 }
 
-export default uiReducer
+export default userReducer

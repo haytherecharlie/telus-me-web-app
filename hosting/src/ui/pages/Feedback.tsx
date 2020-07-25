@@ -1,21 +1,26 @@
 import React, { useState } from 'react'
 import Stars from 'react-star-ratings'
 import { useDispatch, useSelector } from 'react-redux'
+import { dbPostRating } from 'api/routes'
 import ButtonPill from 'ui/atoms/ButtonPill'
 import Link from 'ui/atoms/Link'
 import Text from 'ui/atoms/Text'
-import lastWorkDay from 'ui/helpers/lastWorkDay'
+import { lastWorkDayText } from 'ui/helpers/lastWorkDay'
 import PageLayout from 'ui/layouts/PageLayout'
 
-const Feedback = () => {
-  const { firstName, lastName } = useSelector(s => s.user)
+const Feedback = ({ navigate }) => {
+  const { firstname } = useSelector(s => s.user)
   const [rating, setRating] = useState(4)
 
-  const postRating = () => {
-    console.log(rating)
+  const postRating = async () => {
+    try {
+      await dbPostRating(rating)
+      return navigate('/results')
+    } catch (err) {
+      console.log(err)
+    }
   }
 
-  console.log()
   return (
     <PageLayout page="home" crawl={false} style={{ alignItems: 'center', justifyContent: 'center' }}>
       <img
@@ -26,14 +31,14 @@ const Feedback = () => {
       />
       <Text
         size="XL"
-        text={`HELLO ${firstName.toUpperCase()} ${lastName.toUpperCase()},`}
+        text={`HELLO ${firstname.toUpperCase()},`}
         style={{ textAlign: 'center', marginBottom: 10, fontFamily: 'helvetica', fontWeight: 100 }}
         bold
         unique
       />
       <Text
         size="XL"
-        text={`HOW WAS YOUR DAY ${lastWorkDay().toUpperCase()}?`}
+        text={`HOW WAS YOUR DAY ${lastWorkDayText().toUpperCase()}?`}
         style={{ textAlign: 'center', marginBottom: 10, fontFamily: 'helvetica', fontWeight: 100 }}
         bold
         unique

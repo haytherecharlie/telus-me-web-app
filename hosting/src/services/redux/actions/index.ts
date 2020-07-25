@@ -1,3 +1,6 @@
+/* --- DATE --- */
+export const DATE = 'DATE'
+
 /* --- RATINGS --- */
 export const RATINGS = 'RATINGS'
 
