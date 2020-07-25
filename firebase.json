@@ -1,14 +1,33 @@
 {
   "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
+    "rules": "firebase.db.rules",
+    "indexes": "firebase.db.json"
   },
   "hosting": {
     "public": "hosting/public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "trailingSlash": true,
+    "cleanUrls": true,
+    "appAssociation": "AUTO",
+    "rewrites": [
+      { "source": "/*", "destination": "/index.html" }
+    ],
+    "headers": [
+      { "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)", "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }] },
+      { "source": "**/*.@(js|css)", "headers": [{ "key": "Cache-Control", "value": "max-age=604800" }] },
+      { "source": "**/*.@(jpg|jpeg|gif|png)", "headers": [{ "key": "Cache-Control", "value": "max-age=604800" }] },
+      { "source": "404.html", "headers": [{ "key": "Cache-Control", "value": "max-age=604800" }] }
     ]
+  },
+  "emulators": {
+    "firestore": {
+      "port": 8080
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true
+    }
   }
 }
