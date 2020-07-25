@@ -26,13 +26,7 @@ const Login = () => {
   }
 
   return (
-    <PageLayout
-      page="home"
-      crawl={false}
-      style={{
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+    <PageLayout page="home" crawl={false} style={{ alignItems: 'center', justifyContent: 'center' }}>
       <img src="/images/cheetah.png" alt="cheetah" style={{ width: `50%`, maxWidth: 150 }} />
       <img src="/images/logo.png" alt="logo" style={{ width: `90%`, maxWidth: 300 }} />
       <div
@@ -72,10 +66,7 @@ const Login = () => {
       </div>
       <div style={{ height: 50 }}>
         {valid && (
-          <Link
-            type="button"
-            onClick={submitEmail}
-            style={{ margin: 10, animation: 'fadeIn', animationDuration: '2s' }}>
+          <Link type="button" onClick={submitEmail} style={{ animation: 'fadeIn', animationDuration: '2s' }}>
             <ButtonPill style={{ background: `rgb(43, 128, 0)`, padding: `7px 60px` }}>
               <Text size="S" text="LOG IN" style={{ color: '#FFF' }} bold unique />
             </ButtonPill>

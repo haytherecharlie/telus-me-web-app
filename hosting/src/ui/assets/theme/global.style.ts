@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle({
     backgroundColor: theme.BACKGROUND_COLOR
   },
   '#gatsby-focus-wrapper': {
-    minHeight: `100vh`,
     width: `100vw`,
     display: 'flex',
     flexDirection: 'column',

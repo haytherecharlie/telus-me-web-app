@@ -11,7 +11,13 @@ const useFirebaseAuth = () => {
     store.dispatch({ type: 'RATINGS', ratings: await dbGetRatings(email) })
     return store.dispatch({
       type: 'USER',
-      user: { auth: 'success', email, firstname: firstname.replace(/[0-9]/g, ''), lastname: lastname.replace(/[0-9]/g, ''), uid }
+      user: {
+        auth: 'success',
+        email,
+        firstname: firstname.replace(/[0-9]/g, ''),
+        lastname: lastname.replace(/[0-9]/g, ''),
+        uid
+      }
     })
   }
 
