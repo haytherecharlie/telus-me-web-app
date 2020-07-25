@@ -3,7 +3,8 @@ import { useReducer } from 'react'
 const useTelusMe = () => {
   const defaultState = {
     email: '',
-    page: 'login',
+    loading: true,
+    page: 'loading',
     rating: null
   }
 
@@ -11,6 +12,8 @@ const useTelusMe = () => {
     switch (action.type) {
       case 'email':
         return { ...state, email: action.email }
+      case 'loading':
+        return { ...state, loading: action.loading }
       case 'page':
         return { ...state, page: action.page }
       case 'rating':

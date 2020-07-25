@@ -1,1 +1,1 @@
-export { default as fetchGetSample } from 'api/controllers/fetchGetSample'
+export { default as dbGetRatings } from 'api/controllers/dbGetRatings'
