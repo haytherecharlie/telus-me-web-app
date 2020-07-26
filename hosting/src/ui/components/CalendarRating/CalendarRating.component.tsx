@@ -4,12 +4,13 @@ import Text from 'ui/atoms/Text'
 import * as S from './CalendarRating.style'
 
 const CalendarRating = ({ date, rating, timestamp }) => {
+  const [year, month, day] = date.split('-')
   return (
     <S.CalendarRating>
       <S.RedTitle>
         <Text
           size="S"
-          text={format(new Date(date.replace('-', '/')), 'MMM do').toUpperCase()}
+          text={format(new Date(year, month, day), 'MMM do').toUpperCase()}
           style={{ color: `#FFF` }}
           bold
           unique

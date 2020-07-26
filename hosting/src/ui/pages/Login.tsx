@@ -10,7 +10,7 @@ const Login = () => {
   const [valid, setValid] = useState(false)
 
   const handleChange = e => {
-    setEmail(e.target.value)
+    setEmail(e.target.value.toLowerCase())
     setValid(/^(?=[a-zA-Z,]*['.-][a-zA-Z,]*$)[a-zA-Z,'.-]+$/.test(e.target.value))
   }
 
