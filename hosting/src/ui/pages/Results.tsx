@@ -1,23 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import RecentRatings from 'ui/entities/RecentRatings'
-import ThanksForVoting from 'ui/entities/ThanksForVoting'
+import Scores from 'ui/entities/Scores'
 import PageLayout from 'ui/layouts/PageLayout'
 import Loading from 'ui/pages/Loading'
 
 const Results = () => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+    setTimeout(() => setLoading(false), 5000)
   }, [])
 
   return loading ? (
     <Loading />
   ) : (
     <PageLayout page="404" crawl={false} style={{ alignItems: 'center', justifyContent: 'flex-start' }}>
-      <ThanksForVoting />
-      <RecentRatings />
+      <Scores />
     </PageLayout>
   )
 }
