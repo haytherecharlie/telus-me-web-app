@@ -10,6 +10,7 @@ import PageLayout from 'ui/layouts/PageLayout'
 
 const Feedback = ({ navigate }) => {
   const { firstname } = useSelector(s => s.user)
+  const ratings = useSelector(s => s.ratings)
   const [rating, setRating] = useState(4)
 
   const postRating = async () => {
@@ -20,7 +21,7 @@ const Feedback = ({ navigate }) => {
       console.log(err)
     }
   }
-
+  
   return (
     <PageLayout page="home" crawl={false} style={{ alignItems: 'center', justifyContent: 'center' }}>
       <img

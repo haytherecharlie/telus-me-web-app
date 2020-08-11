@@ -1,13 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Text from 'ui/atoms/Text'
-import * as S from './Scores.style'
 
 const Scores = () => {
   const { personal, team } = useSelector(s => s.ratings)
   return (
     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }}>
-      <img src="images/left-bird.png"/>
+      <img src="images/left-bird.png" />
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Text size="M" text={`THANKS!`} style={{ fontSize: 40 }} bold unique />
         <Text size="M" text={`SEE YOU SOON!`} style={{ fontSize: 20 }} bold unique />
@@ -38,7 +37,7 @@ const Scores = () => {
           </div>
         </div>
       </div>
-      <img src="images/right-bird.png"/>
+      <img src="images/right-bird.png" />
     </div>
   )
 }

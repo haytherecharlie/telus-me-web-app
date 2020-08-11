@@ -2,7 +2,7 @@ import { db } from 'services/firebase'
 
 const dbGetRatings = async email => {
   try {
-    const ratings = await db().collection('ratings').where('team', '==', 'Spacejam').limit(50).get()
+    const ratings = await db().collection('ratings').orderBy('timestamp', 'desc').limit(50).get()
     return ratings.docs.reduce(
       (acc, val) => {
         const curr = val.data()
@@ -11,7 +11,7 @@ const dbGetRatings = async email => {
               ...acc,
               personal: {
                 count: acc.personal.count + 1,
-                data: [ ...acc.personal.data, { x: curr.date, y: curr.rating } ],
+                data: [...acc.personal.data, { x: curr.date.substr(5, curr.date.length), y: curr.rating }],
                 score: (acc.personal.sum + curr.rating) / (acc.personal.count + 1),
                 sum: acc.personal.sum + curr.rating
               }
@@ -20,7 +20,7 @@ const dbGetRatings = async email => {
               ...acc,
               team: {
                 count: acc.team.count + 1,
-                data: [ ...acc.team.data, { x: curr.date, y: curr.rating } ],
+                data: [...acc.team.data, { x: curr.date, y: curr.rating }],
                 score: (acc.team.sum + curr.rating) / (acc.team.count + 1),
                 sum: acc.team.sum + curr.rating
               }
