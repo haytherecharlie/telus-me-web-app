@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import theme from 'assets/styles/theme.style'
 
 export const Wrapper = styled("div")({
   flex: 1,

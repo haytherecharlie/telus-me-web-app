@@ -1,19 +1,18 @@
 import { db, ts } from 'services/firebase'
 import store from 'services/redux'
 
-const dbPostRating = async rating => {
-  const intRating = parseInt(rating, 10)
-  const { date, user } = store.getState()
-  const { email, firstname, lastname } = user
+const dbPostRating = async score => {
+  const { date, ratings, user } = store.getState()
   const { yesterday } = date
-  const [year, month, day] = yesterday.split('-')
-  const docName = email.replace('@telus.com', '')
-  const timestamp = ts.fromDate(new Date(year, month, day))
-  const newRating = { date: yesterday, email, firstname, lastname, rating: intRating, team: 'Spacejam' }
-  await db()
-    .doc(`ratings/${yesterday}-${docName}`)
-    .set({ ...newRating, timestamp })
-  return store.dispatch({ type: 'RATINGS', ratings: { [yesterday]: newRating } })
+  const todaysObject = Object.entries(ratings.personal.raw).filter(([key, val]) => val.date === yesterday)
+  const ref = todaysObject.length ?  db().collection(`ratings`).doc(todaysObject[0][0]) : db().collection(`ratings`).doc()
+  const rating = parseInt(score, 10)
+  const { email, firstname, lastname } = user
+  const team = 'GhKlzGFk4hFidKtWWns3'
+  const timestamp = new Date(yesterday).getTime()
+  const newRating = { date: yesterday, email, firstname, lastname, rating, team, timestamp }
+  await ref.set(newRating)
+  return store.dispatch({ type: 'NEW_RATING', rating: { [ref.id]: newRating } })
 }
 
 export default dbPostRating

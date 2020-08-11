@@ -3,6 +3,7 @@ export const DATE = 'DATE'
 
 /* --- RATINGS --- */
 export const RATINGS = 'RATINGS'
+export const NEW_RATING = 'NEW_RATING'
 
 /* --- UI --- */
 export const DIMENSIONS = 'DIMENSIONS'

@@ -12,6 +12,7 @@ const dbGetRatings = async email => {
               personal: {
                 count: acc.personal.count + 1,
                 data: [...acc.personal.data, { x: curr.date.substr(5, curr.date.length), y: curr.rating }],
+                raw: { ...acc.personal.raw, [val.id]: curr },
                 score: (acc.personal.sum + curr.rating) / (acc.personal.count + 1),
                 sum: acc.personal.sum + curr.rating
               }
@@ -21,12 +22,13 @@ const dbGetRatings = async email => {
               team: {
                 count: acc.team.count + 1,
                 data: [...acc.team.data, { x: curr.date, y: curr.rating }],
+                raw: { ...acc.team.raw, [val.id]: curr },
                 score: (acc.team.sum + curr.rating) / (acc.team.count + 1),
                 sum: acc.team.sum + curr.rating
               }
             }
       },
-      { personal: { count: 0, data: [], score: 0, sum: 0 }, team: { count: 0, data: [], score: 0, sum: 0 } }
+      { personal: { count: 0, data: [], raw: {}, score: 0, sum: 0 }, team: { count: 0, data: [], raw: {}, score: 0, sum: 0 } }
     )
   } catch (err) {}
 }

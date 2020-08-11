@@ -4,7 +4,7 @@ import { BarChart } from 'react-charts-d3'
 import * as S from './RatingsGraph.style'
 
 const RatingsGraph = () => {
-  const { personal, team } = useSelector(s => s.ratings)
+  const { personal } = useSelector(s => s.ratings)
   return (
     <S.Wrapper>
       <BarChart
