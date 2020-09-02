@@ -4,6 +4,13 @@ import Text from 'ui/atoms/Text'
 
 const Scores = () => {
   const { personal, team } = useSelector(s => s.ratings)
+
+  const getAverage = (arrOfObj) => {
+    const length = arrOfObj.length
+    const total = arrOfObj.reduce((t, o) => t + o.y , 0)
+    return (total / length).toString().substr(0, 4)
+  }
+  
   return (
     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }}>
       <img src="images/left-bird.png" />
@@ -21,7 +28,7 @@ const Scores = () => {
             <Text size="S" text={`PERSONAL`} bold unique />
             <Text size="S" text={`AVERAGE`} bold unique />
             <Text size="S" text={`RATING`} bold unique />
-            <Text size="M" text={`${(Math.round(personal.score * 100) / 100) * 2}`} style={{ fontSize: 40 }} bold unique />
+            <Text size="M" text={`${getAverage(personal.data)}`} style={{ fontSize: 40 }} bold unique />
           </div>
           <div
             style={{
@@ -33,7 +40,7 @@ const Scores = () => {
             <Text size="S" text="TEAM" bold unique />
             <Text size="S" text={`AVERAGE`} bold unique />
             <Text size="S" text={`RATING`} bold unique />
-            <Text size="M" text={`${(Math.round(team.score * 100) / 100) * 2}`} style={{ fontSize: 40 }} bold unique />
+            <Text size="M" text={`${getAverage(team.data)}`} style={{ fontSize: 40 }} bold unique />
           </div>
         </div>
       </div>
