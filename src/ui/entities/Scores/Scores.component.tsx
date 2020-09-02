@@ -21,7 +21,7 @@ const Scores = () => {
             <Text size="S" text={`PERSONAL`} bold unique />
             <Text size="S" text={`AVERAGE`} bold unique />
             <Text size="S" text={`RATING`} bold unique />
-            <Text size="M" text={`${Math.round(personal.score * 100) / 100}`} style={{ fontSize: 40 }} bold unique />
+            <Text size="M" text={`${(Math.round(personal.score * 100) / 100) * 2}`} style={{ fontSize: 40 }} bold unique />
           </div>
           <div
             style={{
@@ -33,7 +33,7 @@ const Scores = () => {
             <Text size="S" text="TEAM" bold unique />
             <Text size="S" text={`AVERAGE`} bold unique />
             <Text size="S" text={`RATING`} bold unique />
-            <Text size="M" text={`${Math.round(team.score * 100) / 100}`} style={{ fontSize: 40 }} bold unique />
+            <Text size="M" text={`${(Math.round(team.score * 100) / 100) * 2}`} style={{ fontSize: 40 }} bold unique />
           </div>
         </div>
       </div>
