@@ -28,7 +28,7 @@ const Scores = () => {
             <Text size="S" text={`PERSONAL`} bold unique />
             <Text size="S" text={`AVERAGE`} bold unique />
             <Text size="S" text={`RATING`} bold unique />
-            <Text size="M" text={`${getAverage(personal.data)}`} style={{ fontSize: 40 }} bold unique />
+            <Text size="M" text={`${getAverage(personal.data) * 2}`} style={{ fontSize: 40 }} bold unique />
           </div>
           <div
             style={{
